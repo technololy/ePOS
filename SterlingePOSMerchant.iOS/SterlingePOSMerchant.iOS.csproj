@@ -123,6 +123,21 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\ic_perm_identity%403x.png" />
+    <BundleResource Include="Resources\ic_perm_identity%402x.png" />
+    <BundleResource Include="Resources\ic_perm_identity.png" />
+    <BundleResource Include="Resources\ic_add_circle%403x.png" />
+    <BundleResource Include="Resources\ic_add_circle%402x.png" />
+    <BundleResource Include="Resources\ic_add_circle.png" />
+    <BundleResource Include="Resources\ic_home%403x.png" />
+    <BundleResource Include="Resources\ic_home%402x.png" />
+    <BundleResource Include="Resources\ic_home.png" />
+    <BundleResource Include="Resources\ic_loop%403x.png" />
+    <BundleResource Include="Resources\ic_loop%402x.png" />
+    <BundleResource Include="Resources\ic_loop.png" />
+    <BundleResource Include="Resources\ic_notifications_none%403x.png" />
+    <BundleResource Include="Resources\ic_notifications_none%402x.png" />
+    <BundleResource Include="Resources\ic_notifications_none.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -133,11 +148,14 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.847" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
     <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.9" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>4.6.0.847</Version>
+      <Version>4.7.0.968</Version>
+    </PackageReference>
+    <PackageReference Include="Xfx.Controls">
+      <Version>1.2.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -4,11 +4,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:c="clr-namespace:SterlingePOSMerchant.CustomControls"
+    xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
     BackgroundColor="White"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False"
     Visual="Material">
-    <ContentPage.Resources>
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="QSReg" />
@@ -25,22 +26,31 @@
             <Style TargetType="c:RoundedEntry">
                 <Setter Property="FontFamily" Value="QSReg" />
                 <Setter Property="Visual" Value="Material" />
-                <!--<Setter Property="HeightRequest" Value="50" />-->
+                <Setter Property="HeightRequest" Value="50" />
             </Style>
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </ContentPage.Resources>-->
     <ContentPage.Content>
 
         <StackLayout Padding="20" VerticalOptions="Center">
             <Label FontSize="50" Text="OneBank" />
             <Label Text="Merchant Settlement" />
             <StackLayout Spacing="10">
-                <Entry BackgroundColor="WhiteSmoke" Placeholder="Email" />
-                <Entry BackgroundColor="WhiteSmoke" Placeholder="Password" />
-                <c:RoundedEntry Placeholder="UserName" />
+                <Entry
+                    BackgroundColor="WhiteSmoke"
+                    IsVisible="false"
+                    Placeholder="Email" />
+                <Entry
+                    BackgroundColor="WhiteSmoke"
+                    IsVisible="false"
+                    Placeholder="Password" />
+                <c:RoundedEntry Placeholder="Email" />
+                <c:RoundedEntry Placeholder="Password" />
             </StackLayout>
             <Button
+                x:Name="btnLogin"
                 BackgroundColor="Red"
+                Clicked="btnLogin_Clicked"
                 Text="Login"
                 TextColor="White" />
         </StackLayout>

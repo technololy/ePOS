@@ -11,5 +11,10 @@ namespace SterlingePOSMerchant.Views
         {
             InitializeComponent();
         }
+
+        void btnLogin_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Application.Current.MainPage = new AppShell();
+        }
     }
 }

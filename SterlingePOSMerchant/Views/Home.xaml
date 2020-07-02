@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SterlingePOSMerchant.Views.Home"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Grid RowDefinitions="0.5*,0.5*" RowSpacing="0">
+            <Frame BackgroundColor="Red" CornerRadius="0">
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Label
+                        FontSize="50"
+                        Style="{StaticResource BoldLabel}"
+                        Text="N500,000,000"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </Frame>
+            <CollectionView
+                Grid.Row="1"
+                Margin="20"
+                SelectionMode="Single">
+                <CollectionView.Resources>
+                    <Style TargetType="StackLayout">
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStatess">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters />
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter TargetName="frm" Property="Frame.BackgroundColor" Value="Red" />
+                                            <Setter TargetName="lblType" Property="Label.TextColor" Value="White" />
+
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+
+                    </Style>
+                </CollectionView.Resources>
+
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Card Payment</x:String>
+                        <x:String>QR Payment</x:String>
+                        <x:String>Share Link</x:String>
+                        <x:String>Transfer</x:String>
+
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                        HorizontalItemSpacing="20"
+                        Orientation="Vertical"
+                        Span="2"
+                        VerticalItemSpacing="20" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="White">
+                            <Frame
+                                x:Name="frm"
+                                BackgroundColor="Black"
+                                CornerRadius="20"
+                                HasShadow="False"
+                                HeightRequest="80">
+                                <Label
+                                    x:Name="lblType"
+                                    Style="{StaticResource BoldLabel}"
+                                    Text="{Binding .}"
+                                    TextColor="White"
+                                    VerticalOptions="CenterAndExpand" />
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

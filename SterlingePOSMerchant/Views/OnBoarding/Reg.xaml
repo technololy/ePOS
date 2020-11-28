@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SterlingePOSMerchant.Views.OnBoarding.Reg"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:c="clr-namespace:SterlingePOSMerchant.CustomControls"
+    xmlns:ffSVG="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    BackgroundColor="White"
+    Style="{StaticResource NPStyle}">
+    <NavigationPage.TitleView>
+
+        <Label Style="{StaticResource NavLabel}" Text="REGISTERATION" />
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout Spacing="10">
+
+            <ffSVG:SvgCachedImage
+                BackgroundColor="#e5e5e5"
+                HeightRequest="150"
+                Source="resource://SterlingePOSMerchant.Resources.svg.undraw_fill_forms_yltj.svg"
+                WidthRequest="200" />
+            <Label Text="Please fill all the forms and be onboarded to PayThru" />
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant name" />
+            <c:RoundedEntry
+                x:Name="txtMerchantName"
+                Placeholder="Merchant name"
+                Text="{Binding Merchant.name}" />
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant email" />
+
+            <c:RoundedEntry
+                x:Name="txtEmail"
+                Keyboard="Email"
+                Placeholder="Email"
+                Text="{Binding Merchant.email}" />
+
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant TIN (Tax Identity Number)" />
+
+            <c:RoundedEntry Placeholder="TIN" Text="{Binding Merchant.tin}" />
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant phone number" />
+
+            <c:RoundedEntry
+                Keyboard="Numeric"
+                Placeholder="Phone number"
+                Text="{Binding Merchant.phone}" />
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant address" />
+
+            <c:RoundedEntry Placeholder="Address" Text="{Binding Merchant.address}" />
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant fee" />
+
+            <c:RoundedEntry
+                Keyboard="Numeric"
+                Placeholder="Fee"
+                Text="{Binding Merchant.fee}" />
+
+            <Button
+                x:Name="btnRegister"
+                Command="{Binding RegisterCommand}"
+                Text="Register" />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

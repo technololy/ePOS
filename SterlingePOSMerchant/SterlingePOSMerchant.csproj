@@ -1,36 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.7.0.968" />
-    <PackageReference Include="Xfx.Controls" Version="1.2.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="CustomControls\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Resources\Quicksand_Dash.otf" />
-    <None Remove="Resources\Quicksand-Bold.otf" />
-    <None Remove="Resources\Quicksand-BoldItalic.otf" />
-    <None Remove="Resources\Quicksand-Italic.otf" />
-    <None Remove="Resources\Quicksand-Light.otf" />
-    <None Remove="Resources\Quicksand-LightItalic.otf" />
-    <None Remove="Resources\Quicksand-Regular.otf" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Quicksand_Dash.otf" />
-    <EmbeddedResource Include="Resources\Quicksand-Bold.otf" />
-    <EmbeddedResource Include="Resources\Quicksand-BoldItalic.otf" />
-    <EmbeddedResource Include="Resources\Quicksand-Italic.otf" />
-    <EmbeddedResource Include="Resources\Quicksand-Light.otf" />
-    <EmbeddedResource Include="Resources\Quicksand-LightItalic.otf" />
-    <EmbeddedResource Include="Resources\Quicksand-Regular.otf" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+        <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.7.0.968" />
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+        <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+        <PackageReference Include="Acr.UserDialogs" Version="7.1.0.466" />
+        <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+        <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Resources\" />
+        <Folder Include="CustomControls\" />
+        <Folder Include="Settings\" />
+        <Folder Include="Views\QR\" />
+        <Folder Include="Views\OnBoarding\" />
+        <Folder Include="Resources\svg\" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="Resources\Quicksand_Dash.otf" />
+        <None Remove="Resources\Quicksand-Bold.otf" />
+        <None Remove="Resources\Quicksand-BoldItalic.otf" />
+        <None Remove="Resources\Quicksand-Italic.otf" />
+        <None Remove="Resources\Quicksand-Light.otf" />
+        <None Remove="Resources\Quicksand-LightItalic.otf" />
+        <None Remove="Resources\Quicksand-Regular.otf" />
+        <None Remove="Resources\svg\undraw_business_shop_qw5t.svg" />
+        <None Remove="Resources\svg\undraw_fill_forms_yltj.svg" />
+        <None Remove="Resources\svg\undraw_agreement_aajr.svg" />
+        <None Remove="Resources\materialdesignicons-webfont.ttf" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\Quicksand_Dash.otf" />
+        <EmbeddedResource Include="Resources\Quicksand-Bold.otf" />
+        <EmbeddedResource Include="Resources\Quicksand-BoldItalic.otf" />
+        <EmbeddedResource Include="Resources\Quicksand-Italic.otf" />
+        <EmbeddedResource Include="Resources\Quicksand-Light.otf" />
+        <EmbeddedResource Include="Resources\Quicksand-LightItalic.otf" />
+        <EmbeddedResource Include="Resources\Quicksand-Regular.otf" />
+        <EmbeddedResource Include="Resources\svg\undraw_business_shop_qw5t.svg" />
+        <EmbeddedResource Include="Resources\svg\undraw_fill_forms_yltj.svg" />
+        <EmbeddedResource Include="Resources\svg\undraw_agreement_aajr.svg" />
+        <EmbeddedResource Include="Resources\materialdesignicons-webfont.ttf" />
+    </ItemGroup>
 </Project>

@@ -5,7 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:c="clr-namespace:SterlingePOSMerchant.CustomControls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    ios:Page.UseSafeArea="False"
     mc:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
@@ -17,18 +19,47 @@
                 <Setter Property="FontFamily" Value="QSBold" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
+            <Style x:Key="NavLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="QSBold" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="FontSize" Value="25" />
+            </Style>
+            <Style x:Key="EntryTitle" TargetType="Label">
+                <Setter Property="FontFamily" Value="QSReg" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="Margin" Value="0,0,0,-5" />
+
+            </Style>
             <Style TargetType="Entry">
                 <Setter Property="FontFamily" Value="QSReg" />
             </Style>
             <Style TargetType="Button">
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="BackgroundColor" Value="Red" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="FontFamily" Value="QSReg" />
             </Style>
+            <!--<Style x:Key="AltButton" TargetType="Button">
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="Red" />
+                <Setter Property="BorderColor" Value="Red" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="FontFamily" Value="QSReg" />
+            </Style>-->
             <Style TargetType="c:RoundedEntry">
                 <Setter Property="FontFamily" Value="QSReg" />
                 <Setter Property="Visual" Value="Material" />
                 <Setter Property="HeightRequest" Value="50" />
+            </Style>
+            <Style x:Key="NPStyle" TargetType="Page">
+                <Setter Property="Title" Value="Title" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="NavigationPage.HasNavigationBar" Value="True" />
+                <Setter Property="ios:Page.UseSafeArea" Value="True" />
+                <Setter Property="Padding" Value="20" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

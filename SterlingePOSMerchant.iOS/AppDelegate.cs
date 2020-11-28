@@ -4,7 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
-using Xfx;
+//using Xfx;
 
 namespace SterlingePOSMerchant.iOS
 {
@@ -24,7 +24,7 @@ namespace SterlingePOSMerchant.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Calabash.Start();
-            XfxControls.Init();
+            //XfxControls.Init();
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             Xamarin.Forms.FormsMaterial.Init();

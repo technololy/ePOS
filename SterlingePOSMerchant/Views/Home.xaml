@@ -3,13 +3,20 @@
     x:Class="SterlingePOSMerchant.Views.Home"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwe="clr-namespace:SterlingePOSMerchant.Services"
     Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <Grid RowDefinitions="0.5*,0.5*" RowSpacing="0">
             <Frame BackgroundColor="Red" CornerRadius="0">
                 <StackLayout VerticalOptions="CenterAndExpand">
                     <Label
-                        FontSize="50"
+                        FontSize="17"
+                        Style="{StaticResource BoldLabel}"
+                        Text="Welcome, Merchant Test"
+                        TextColor="White" />
+                    <Label
+                        FontSize="45"
+                        LineBreakMode="TailTruncation"
                         Style="{StaticResource BoldLabel}"
                         Text="N500,000,000"
                         TextColor="White"
@@ -17,8 +24,10 @@
                 </StackLayout>
             </Frame>
             <CollectionView
+                x:Name="myCV"
                 Grid.Row="1"
                 Margin="20"
+                SelectionChanged="CollectionView_SelectionChanged"
                 SelectionMode="Single">
                 <CollectionView.Resources>
                     <Style TargetType="StackLayout">
@@ -42,7 +51,7 @@
                     </Style>
                 </CollectionView.Resources>
 
-                <CollectionView.ItemsSource>
+                <!--<CollectionView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Card Payment</x:String>
                         <x:String>QR Payment</x:String>
@@ -50,7 +59,7 @@
                         <x:String>Transfer</x:String>
 
                     </x:Array>
-                </CollectionView.ItemsSource>
+                </CollectionView.ItemsSource>-->
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout
                         HorizontalItemSpacing="20"
@@ -67,12 +76,21 @@
                                 CornerRadius="20"
                                 HasShadow="False"
                                 HeightRequest="80">
-                                <Label
-                                    x:Name="lblType"
-                                    Style="{StaticResource BoldLabel}"
-                                    Text="{Binding .}"
-                                    TextColor="White"
-                                    VerticalOptions="CenterAndExpand" />
+                                <StackLayout>
+                                    <Label
+                                        FontFamily="FontAwesome"
+                                        FontSize="30"
+                                        Text="{Binding Icon}"
+                                        TextColor="White" />
+
+
+                                    <Label
+                                        x:Name="lblType"
+                                        Style="{StaticResource BoldLabel}"
+                                        Text="{Binding Name}"
+                                        TextColor="White"
+                                        VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
                             </Frame>
                         </StackLayout>
                     </DataTemplate>

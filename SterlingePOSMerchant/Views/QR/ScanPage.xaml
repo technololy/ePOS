@@ -3,6 +3,7 @@
     x:Class="SterlingePOSMerchant.Views.QR.ScanPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwe="clr-namespace:SterlingePOSMerchant.Services"
     xmlns:zing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
     xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable">
     <ContentPage.Content>
@@ -12,7 +13,71 @@
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource BoldLabel}"
                 Text="Please scan this QR code to initiate payment" />
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <BindableLayout.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Static</x:String>
+                        <x:String>Dynamic</x:String>
 
+
+                    </x:Array>
+                </BindableLayout.ItemsSource>
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+
+                        <Frame
+                            Padding="6"
+                            BorderColor="#e5e5e5"
+                            HasShadow="False"
+                            HeightRequest="40"
+                            WidthRequest="200">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    x:Name="DocTypeTap"
+                                    CommandParameter="{Binding .}"
+                                    Tapped="QRType_Tapped" />
+                            </Frame.GestureRecognizers>
+                            <Grid ColumnDefinitions="0.7*,0.3*">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="{Binding .}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Label
+                                    x:Name="lblCheckBox"
+                                    Grid.Column="1"
+                                    FontFamily="FontAwesome"
+                                    HorizontalOptions="CenterAndExpand"
+                                    IsVisible="false"
+                                    Text="{x:Static fontAwe:IconFont.CheckDecagram}"
+                                    TextColor="Red"
+                                    VerticalOptions="CenterAndExpand" />
+                            </Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <!--<Setter Property="BorderColor" Value="#e5e5e5" />-->
+                                            <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="false" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="True" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Frame>
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </StackLayout>
             <zing:ZXingBarcodeImageView
                 x:Name="myZX"
                 BarcodeValue="Lolade"

@@ -10,7 +10,7 @@ using Acr.UserDialogs;
 
 namespace SterlingePOSMerchant.Droid
 {
-    [Activity(Label = "SterlingePOSMerchant", Icon = "@drawable/sterlingicon", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "PayThru Merchant", Icon = "@drawable/ic_loop", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

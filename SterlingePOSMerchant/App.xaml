@@ -15,6 +15,10 @@
                 <Setter Property="FontFamily" Value="QSReg" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
+            <Style TargetType="Picker">
+                <Setter Property="FontFamily" Value="QSReg" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
             <Style x:Key="BoldLabel" TargetType="Label">
                 <Setter Property="FontFamily" Value="QSBold" />
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -25,7 +29,7 @@
                 <Setter Property="FontSize" Value="25" />
             </Style>
             <Style x:Key="EntryTitle" TargetType="Label">
-                <Setter Property="FontFamily" Value="QSReg" />
+                <Setter Property="FontFamily" Value="QSBold" />
                 <Setter Property="HorizontalOptions" Value="StartAndExpand" />
                 <Setter Property="Margin" Value="0,0,0,-5" />
 

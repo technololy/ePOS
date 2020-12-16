@@ -36,6 +36,7 @@
         <ffSVG:SvgCachedImage
             BackgroundColor="#e5e5e5"
             HeightRequest="200"
+            IsVisible="false"
             Source="resource://SterlingePOSMerchant.Resources.svg.undraw_business_shop_qw5t.svg"
             WidthRequest="100" />
         <Image Scale="0.7" Source="PayThruLogo" />

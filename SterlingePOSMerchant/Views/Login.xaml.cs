@@ -24,9 +24,20 @@ namespace SterlingePOSMerchant.Views
                 var response = await IndexVM.Reset();
                 if (response)
                 {
-                    stackLogin.IsVisible = true;
-                    txtEmail.Text = Settings.AppSettings.ClientId;
-                    btnRefresh.IsVisible = false;
+
+                    var getAccessToken = await IndexVM.Login();
+                    if (getAccessToken)
+                    {
+                        stackLogin.IsVisible = true;
+                        //txtEmail.Text = Settings.AppSettings.ClientId;
+                        btnRefresh.IsVisible = false;
+                    }
+                    else
+                    {
+                        stackLogin.IsVisible = false;
+                        btnRefresh.IsVisible = true;
+                    }
+
 
                 }
                 else

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="KMN_Test.Custom.MyToggleButton"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwe="clr-namespace:SterlingePOSMerchant.Services">
+    <ScrollView Margin="5" Orientation="Horizontal">
+        <StackLayout
+            x:Name="myStack"
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+
+                    <Frame
+                        Padding="6"
+                        BorderColor="#e5e5e5"
+                        HasShadow="False"
+                        HeightRequest="40">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                x:Name="DocTypeTap"
+                                CommandParameter="{Binding .}"
+                                Tapped="DocTypeTap_Tapped" />
+                        </Frame.GestureRecognizers>
+                        <Grid ColumnDefinitions="0.8*,0.2*">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                Text="{Binding .}" />
+                            <Label
+                                x:Name="lblCheckBox"
+                                Grid.Column="1"
+                                FontFamily="FontAwesome"
+                                IsVisible="false"
+                                Text="{x:Static fontAwe:IconFont.CheckDecagram}"
+                                TextColor="{x:StaticResource ThemeColor}" />
+                        </Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <!--<Setter Property="BorderColor" Value="#e5e5e5" />-->
+                                        <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="false" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="True" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Frame>
+
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+
+        </StackLayout>
+    </ScrollView>
+</ContentView>

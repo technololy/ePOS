@@ -13,16 +13,22 @@ namespace SterlingePOSMerchant.Views
         {
             InitializeComponent();
             LoadFeatureNames();
+            //lblWelcome.Text = $"Welcome, {Services.DataWareHouse.LoggedInMerchantData?.firstName}";
+            //  txtRole.Text = Services.DataWareHouse.LoggedInMerchantData?.userRole;
+            // txtInfo1.Text = Services.DataWareHouse.LoggedInMerchantData?.fullName;
+            this.BindingContext = Services.DataWareHouse.LoggedInMerchantData;
         }
 
         private void LoadFeatureNames()
         {
             List<Features> feat = new List<Features>()
             {
-                new Features{Icon = Services.IconFont.Cards, Name = "Card Payment"},
+              //  new Features{Icon = Services.IconFont.Cards, Name = "Card Payment"},
                 new Features{Icon = Services.IconFont.Qrcode, Name = "QR Payment"},
-                new Features{Icon = Services.IconFont.Link, Name = "Share Link"},
-                new Features{Icon = Services.IconFont.Transfer, Name = "Transfer"},
+               // new Features{Icon = Services.IconFont.Link, Name = "Share Link"},
+               // new Features{Icon = Services.IconFont.Transfer, Name = "Transfer"},
+                new Features{Icon = Services.IconFont.Transfer, Name = "Transaction History"},
+                new Features{Icon = Services.IconFont.Transfer, Name = "Messages"},
             };
             myCV.ItemsSource = feat;
         }

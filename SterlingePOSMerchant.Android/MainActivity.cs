@@ -7,17 +7,18 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Acr.UserDialogs;
+using Xamarin.Forms.Platform.Android;
 
 namespace SterlingePOSMerchant.Droid
 {
-    [Activity(Label = "PayThru Merchant", Icon = "@drawable/ic_loop", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "PayThru Merchant", Icon = "@drawable/PayThruLogo", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            this.SetStatusBarColor(Xamarin.Forms.Color.Black.ToAndroid());
             base.OnCreate(savedInstanceState);
             UserDialogs.Init(this);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();

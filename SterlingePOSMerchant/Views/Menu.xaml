@@ -1,5 +1,70 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SterlingePOSMerchant.Views.Menu">
-    <ContentPage.Content>
-    </ContentPage.Content>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SterlingePOSMerchant.Views.Menu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="More settings">
+    <StackLayout Padding="0,20,0,20">
+        <!--<Label
+            x:Name="lblHeader"
+            Margin="30,0,30,30"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Style="{x:StaticResource NavLabel}"
+            Text="More and more" />-->
+        <CollectionView
+            x:Name="myCV"
+            HorizontalScrollBarVisibility="Always"
+            IsGrouped="False"
+            ItemsSource="{Binding DashBoardTipsList}"
+            SelectionChanged="myCV_SelectionChanged"
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="15" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <!--<CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label
+                            FontFamily="BoldFont"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{Binding Subject}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>-->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Grid ColumnDefinitions="0.1*, 0.9*">
+                            <Label
+                                FontFamily="FontAwesome"
+                                FontSize="30"
+                                Text="{Binding Image}"
+                                TextColor="{StaticResource ThemeColor}" />
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="StartAndExpand"
+                                Spacing="3">
+                                <Label
+                                    FontSize="18"
+                                    Style="{StaticResource NavLabel}"
+                                    Text="{Binding Subject}" />
+                                <Label
+                                    FontFamily="QSReg"
+                                    FontSize="13"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Body}" />
+
+                            </StackLayout>
+                        </Grid>
+                        <BoxView BackgroundColor="Black" HeightRequest="0.5" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button
+            Margin="20"
+            Clicked="Button_Clicked"
+            Text="Log out" />
+    </StackLayout>
 </ContentPage>

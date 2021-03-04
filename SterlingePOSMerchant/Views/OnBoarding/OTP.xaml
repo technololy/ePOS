@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SterlingePOSMerchant.Views.OnBoarding.OTP"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:SterlingePOSMerchant.CustomControls"
+    xmlns:ffSVG="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <StackLayout>
+        <StackLayout BackgroundColor="{StaticResource ThemeColor}">
+            <ffSVG:SvgCachedImage
+                BackgroundColor="{StaticResource ThemeColor}"
+                HeightRequest="100"
+                Source="resource://SterlingePOSMerchant.Resources.svg.undraw_fill_forms_yltj.svg"
+                WidthRequest="300" />
+            <Label
+                Margin="10"
+                Text="Please enter OTP sent to you"
+                TextColor="White" />
+
+        </StackLayout>
+        <StackLayout x:Name="stackOTP" Padding="20">
+            <Label Style="{StaticResource EntryTitle}" Text="Enter OTP" />
+            <cc:RoundedEntry Placeholder="OTP" Text="{Binding GetOTP_Password.OTP}" />
+
+            <Label Style="{StaticResource EntryTitle}" Text="Enter password" />
+            <cc:RoundedEntry Placeholder="Password" Text="{Binding GetOTP_Password.Password}" />
+
+            <Label Style="{StaticResource EntryTitle}" Text="Type password again" />
+            <cc:RoundedEntry Placeholder="Confirm Password" Text="{Binding GetOTP_Password.VerifyPassword}" />
+            <Button
+                x:Name="btnOTP_Password"
+                Clicked="btnOTP_Password_Clicked"
+                Text="Finish" />
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

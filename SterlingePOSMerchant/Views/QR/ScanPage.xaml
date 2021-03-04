@@ -3,90 +3,161 @@
     x:Class="SterlingePOSMerchant.Views.QR.ScanPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:c="clr-namespace:SterlingePOSMerchant.CustomControls"
     xmlns:fontAwe="clr-namespace:SterlingePOSMerchant.Services"
+    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+    xmlns:xct1="http://xamarin.com/schemas/2020/toolkit"
     xmlns:zing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-    xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label
-                FontSize="20"
-                HorizontalTextAlignment="Center"
-                Style="{StaticResource BoldLabel}"
-                Text="Please scan this QR code to initiate payment" />
-            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                <BindableLayout.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Static</x:String>
-                        <x:String>Dynamic</x:String>
+    xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+    Title="Generate QR Code"
+    Padding="20"
+    Shell.TabBarIsVisible="False">
 
 
-                    </x:Array>
-                </BindableLayout.ItemsSource>
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
 
-                        <Frame
-                            Padding="6"
-                            BorderColor="#e5e5e5"
-                            HasShadow="False"
-                            HeightRequest="40"
-                            WidthRequest="200">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer
-                                    x:Name="DocTypeTap"
-                                    CommandParameter="{Binding .}"
-                                    Tapped="QRType_Tapped" />
-                            </Frame.GestureRecognizers>
-                            <Grid ColumnDefinitions="0.7*,0.3*">
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="14"
-                                    HorizontalOptions="CenterAndExpand"
-                                    Text="{Binding .}"
-                                    VerticalOptions="CenterAndExpand" />
-                                <Label
-                                    x:Name="lblCheckBox"
-                                    Grid.Column="1"
-                                    FontFamily="FontAwesome"
-                                    HorizontalOptions="CenterAndExpand"
-                                    IsVisible="false"
-                                    Text="{x:Static fontAwe:IconFont.CheckDecagram}"
-                                    TextColor="Red"
-                                    VerticalOptions="CenterAndExpand" />
-                            </Grid>
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <VisualState.Setters>
-                                            <!--<Setter Property="BorderColor" Value="#e5e5e5" />-->
-                                            <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="false" />
-                                        </VisualState.Setters>
-                                    </VisualState>
+    <xct:TabView
+        TabIndicatorColor="{StaticResource ThemeColor}"
+        TabStripHeight="60"
+        TabStripPlacement="Bottom">
 
-                                    <VisualState x:Name="Selected">
-                                        <VisualState.Setters>
-                                            <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="True" />
-                                        </VisualState.Setters>
-                                    </VisualState>
+        <xct:TabViewItem
+            FontFamily="QSBold"
+            FontSize="12"
+            Text="Static QR"
+            TextColor="White"
+            TextColorSelected="White">
+
+            <xct:TabViewItem.Content>
+                <StackLayout>
+                    <zing:ZXingBarcodeImageView
+                        x:Name="myZX"
+                        BarcodeValue="Lolade"
+                        HeightRequest="300"
+                        WidthRequest="300">
+                        <zing:ZXingBarcodeImageView.BarcodeOptions>
+                            <zxcm:EncodingOptions Width="300" Height="300" />
+                        </zing:ZXingBarcodeImageView.BarcodeOptions>
+                    </zing:ZXingBarcodeImageView>
+                </StackLayout>
+            </xct:TabViewItem.Content>
+
+        </xct:TabViewItem>
+
+        <xct:TabViewItem
+            FontFamily="QSBold"
+            FontSize="12"
+            Text="Dynamic QR"
+            TextColor="White"
+            TextColorSelected="White">
+
+            <xct:TabViewItem.Content>
+                <StackLayout
+                    x:Name="DynamicEntry"
+                    Margin="0,20,0,0"
+                    Spacing="20">
+
+                    <Label Style="{StaticResource EntryTitle}" Text="Enter Amount" />
+                    <c:RoundedEntry
+                        Keyboard="Numeric"
+                        Placeholder="Amount"
+                        Text="{Binding Merchant.firstName}">
+                        <c:RoundedEntry.Behaviors>
+                            <xct1:MaskedBehavior Mask="AAA,AAA,AAA" UnMaskedCharacter="A" />
+                        </c:RoundedEntry.Behaviors>
+                    </c:RoundedEntry>
+                    <Button
+                        x:Name="genDynamicQR"
+                        Clicked="genDynamicQR_Clicked"
+                        Text="Generate QR Code" />
+                </StackLayout>
+            </xct:TabViewItem.Content>
+        </xct:TabViewItem>
+    </xct:TabView>
+
+    <!--<StackLayout>
 
 
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                        </Frame>
+                <Label
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    IsVisible="false"
+                    Style="{StaticResource BoldLabel}"
+                    Text="Please scan this QR code to initiate payment" />
+                <StackLayout
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="false"
+                    Orientation="Horizontal">
+                    <BindableLayout.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Dynamic</x:String>
+                            <x:String>Static</x:String>
 
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
 
-            </StackLayout>
-            <zing:ZXingBarcodeImageView
-                x:Name="myZX"
-                BarcodeValue="Lolade"
-                HeightRequest="300"
-                WidthRequest="300">
-                <zing:ZXingBarcodeImageView.BarcodeOptions>
-                    <zxcm:EncodingOptions Width="300" Height="300" />
-                </zing:ZXingBarcodeImageView.BarcodeOptions>
-            </zing:ZXingBarcodeImageView>
-        </StackLayout>
-    </ContentPage.Content>
+                        </x:Array>
+                    </BindableLayout.ItemsSource>
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+
+                            <Frame
+                                Padding="6"
+                                BorderColor="#e5e5e5"
+                                HasShadow="False"
+                                HeightRequest="40"
+                                WidthRequest="200">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="DocTypeTap"
+                                        CommandParameter="{Binding .}"
+                                        Tapped="QRType_Tapped" />
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions="0.7*,0.3*">
+                                    <Label
+                                        x:Name="lblText"
+                                        FontFamily="QSBold"
+                                        FontSize="14"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="{Binding .}"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <Label
+                                        x:Name="lblCheckBox"
+                                        Grid.Column="1"
+                                        FontFamily="FontAwesome"
+                                        HorizontalOptions="CenterAndExpand"
+                                        IsVisible="false"
+                                        Text="{x:Static fontAwe:IconFont.CheckDecagram}"
+                                        TextColor="{StaticResource ThemeColor}"
+                                        VerticalOptions="CenterAndExpand" />
+                                </Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BorderColor" Value="#e5e5e5" />
+                                                <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="false" />
+                                                <Setter TargetName="lblText" Property="Label.FontAttributes" Value="None" />
+                                                <Setter TargetName="lblText" Property="Label.TextColor" Value="Black" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="True" />
+                                                <Setter TargetName="lblText" Property="Label.FontAttributes" Value="Bold" />
+                                                <Setter TargetName="lblText" Property="Label.TextColor" Value="{StaticResource ThemeColor}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Frame>
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+
+            </StackLayout>-->
+
+
 </ContentPage>

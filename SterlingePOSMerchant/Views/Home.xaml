@@ -5,23 +5,109 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:fontAwe="clr-namespace:SterlingePOSMerchant.Services"
     Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
-        <Grid RowDefinitions="0.5*,0.5*" RowSpacing="0">
-            <Frame BackgroundColor="Red" CornerRadius="0">
-                <StackLayout VerticalOptions="CenterAndExpand">
+    <StackLayout>
+        <Label
+            x:Name="lblWelcome"
+            FontSize="17"
+            HorizontalOptions="CenterAndExpand"
+            HorizontalTextAlignment="Center"
+            Style="{StaticResource BoldLabel}"
+            Text="{Binding firstName, StringFormat='Welcome, {0}'}"
+            TextColor="White" />
+        <Grid RowDefinitions="Auto,0.8*" RowSpacing="0">
+            <Frame
+                Margin="20,20,20,0"
+                BackgroundColor="{StaticResource ThemeColor}"
+                CornerRadius="10"
+                HeightRequest="130">
+                <Grid
+                    Margin="13"
+                    ColumnDefinitions="*, auto"
+                    ColumnSpacing="2"
+                    InputTransparent="True"
+                    RowDefinitions="Auto, *, Auto"
+                    RowSpacing="0">
+
                     <Label
-                        FontSize="17"
-                        Style="{StaticResource BoldLabel}"
-                        Text="Welcome, Merchant Test"
+                        x:Name="txtRole"
+                        Grid.ColumnSpan="2"
+                        FontFamily="QSReg"
+                        FontSize="16"
+                        HorizontalOptions="CenterAndExpand"
+                        InputTransparent="true"
+                        Text="{Binding userRole}"
                         TextColor="White" />
+
                     <Label
-                        FontSize="45"
-                        LineBreakMode="TailTruncation"
-                        Style="{StaticResource BoldLabel}"
-                        Text="N500,000,000"
-                        TextColor="White"
-                        VerticalOptions="Center" />
-                </StackLayout>
+                        x:Name="lblAmount"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        InputTransparent="true"
+                        VerticalOptions="CenterAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="QSBold"
+                                    FontSize="8"
+                                    Text="EMAIL" />
+                                <Span Text="&#10;" />
+
+                                <Span
+                                    x:Name="txtInfo1"
+                                    FontFamily="QSBold"
+                                    FontSize="18"
+                                    Text="{Binding emailAddress}"
+                                    TextColor="White" />
+
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+
+
+                    <Label Grid.Row="2" TextColor="White">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="QSBold"
+                                    FontSize="8"
+                                    Text="USER ID NUMBER" />
+                                <Span Text="&#10;" />
+
+                                <Span
+                                    x:Name="txtInfo3"
+                                    FontFamily="QSReg"
+                                    FontSize="16"
+                                    Text="{Binding code}"
+                                    TextColor="White" />
+
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        TextColor="White">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="QSBold"
+                                    FontSize="8"
+                                    Text="USER NAME" />
+                                <Span Text="&#10;" />
+
+                                <Span
+                                    x:Name="txtInfo4"
+                                    FontFamily="QSReg"
+                                    FontSize="16"
+                                    Text="{Binding userName}"
+                                    TextColor="White" />
+
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </Grid>
             </Frame>
             <CollectionView
                 x:Name="myCV"
@@ -39,7 +125,7 @@
                                     </VisualState>
                                     <VisualState x:Name="Selected">
                                         <VisualState.Setters>
-                                            <Setter TargetName="frm" Property="Frame.BackgroundColor" Value="Red" />
+                                            <Setter TargetName="frm" Property="Frame.BackgroundColor" Value="{StaticResource ThemeColor}" />
                                             <Setter TargetName="lblType" Property="Label.TextColor" Value="White" />
 
                                         </VisualState.Setters>
@@ -72,7 +158,7 @@
                         <StackLayout BackgroundColor="White">
                             <Frame
                                 x:Name="frm"
-                                BackgroundColor="Black"
+                                BackgroundColor="#31383F"
                                 CornerRadius="20"
                                 HasShadow="False"
                                 HeightRequest="80">
@@ -86,6 +172,7 @@
 
                                     <Label
                                         x:Name="lblType"
+                                        HorizontalTextAlignment="Center"
                                         Style="{StaticResource BoldLabel}"
                                         Text="{Binding Name}"
                                         TextColor="White"
@@ -97,5 +184,5 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>

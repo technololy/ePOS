@@ -30,12 +30,12 @@ namespace SterlingePOSMerchant.Droid.Renderers
             {
                 //Control.SetBackgroundResource(Resource.Layout.rounded_shape);
                 var gradientDrawable = new GradientDrawable();
-                gradientDrawable.SetCornerRadius(20f);
+                gradientDrawable.SetCornerRadius(10f);
                 gradientDrawable.SetStroke(5, Android.Graphics.Color.LightGray);
                 gradientDrawable.SetColor(Android.Graphics.Color.WhiteSmoke);
                 Control.SetBackground(gradientDrawable);
 
-                Control.SetPadding(50, Control.PaddingTop, Control.PaddingRight,
+                Control.SetPadding(20, Control.PaddingTop, Control.PaddingRight,
                     Control.PaddingBottom);
             }
         }

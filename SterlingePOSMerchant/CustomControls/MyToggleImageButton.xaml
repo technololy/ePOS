@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="KMN_Test.Custom.MyToggleImageButton"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:fontAwe="clr-namespace:SterlingePOSMerchant.Services">
+    <!--<ScrollView Margin="5" Orientation="Horizontal">
+
+    </ScrollView>-->
+    <StackLayout
+        x:Name="myStack"
+        HorizontalOptions="CenterAndExpand"
+        Orientation="Horizontal">
+
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+
+                <Frame
+                    x:Name="parentFrm"
+                    Padding="5"
+                    BorderColor="#e5e5e5"
+                    HasShadow="False"
+                    WidthRequest="150">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            x:Name="DocTypeTap"
+                            CommandParameter="{Binding .}"
+                            Tapped="DocTypeTap_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnDefinitions="0.8*,0.2*" RowDefinitions="Auto,Auto">
+                        <ffsvg:SvgCachedImage
+                            x:Name="imgOfferType"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,0"
+                            HeightRequest="30"
+                            Source="{Binding Image}" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            FontAttributes="Bold"
+                            FontFamily="QSBold"
+                            FontSize="14"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Text}"
+                            VerticalOptions="EndAndExpand" />
+                        <!--<Image Source="{Binding .}" />-->
+                        <!--<Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                Text="{Binding .}" />-->
+                        <!--
+                            <ffsvg:SvgCachedImage
+                                x:Name="imgOfferType"
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                Source="{Binding Image}"
+                                Style="{StaticResource ImgExplainer}" />-->
+                        <!--<Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                Text="{Binding Text}" />
+                        -->
+                        <Label
+                            x:Name="lblCheckBox"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="FontAwesome"
+                            IsVisible="false"
+                            Text="{x:Static fontAwe:IconFont.CheckDecagram}"
+                            TextColor="{x:StaticResource ThemeColor}" />
+                    </Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <!--<Setter Property="BorderColor" Value="#e5e5e5" />-->
+                                    <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="false" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter TargetName="lblCheckBox" Property="Label.IsVisible" Value="True" />
+                                    <Setter Property="BorderColor" Value="{StaticResource ThemeColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+
+    </StackLayout>
+</ContentView>

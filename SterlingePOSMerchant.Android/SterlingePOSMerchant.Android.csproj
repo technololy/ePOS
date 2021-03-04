@@ -1,277 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D734A37-B38C-4C6B-891B-9DC439B48870}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>SterlingePOSMerchant.Droid</RootNamespace>
-    <AssemblyName>SterlingePOSMerchant.Android</AssemblyName>
-    <Deterministic>True</Deterministic>
-    <AndroidApplication>True</AndroidApplication>
-    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
-    <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
-    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
-    <AndroidUseAapt2>true</AndroidUseAapt2>
-    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AndroidManagedSymbols>true</AndroidManagedSymbols>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Mono.Android" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>4.7.0.968</Version>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Acr.UserDialogs">
-      <Version>7.1.0.466</Version>
-    </PackageReference>
-    <PackageReference Include="ZXing.Net.Mobile">
-      <Version>2.4.1</Version>
-    </PackageReference>
-    <PackageReference Include="ZXing.Net.Mobile.Forms">
-      <Version>2.4.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.FFImageLoading.Forms">
-      <Version>2.4.11.982</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
-      <Version>2.4.11.982</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.FFImageLoading.Svg">
-      <Version>2.4.11.982</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
-      <Version>2.4.11.982</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Renderers\RoundedEntryRendererAndroid.cs" />
-    <Compile Include="Resources\drawable\ScanPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <Compile Include="Renderers\PickerRenderer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Tabbar.xml" />
-    <AndroidResource Include="Resources\layout\Toolbar.xml" />
-    <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
-    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
-    <AndroidResource Include="Resources\drawable\tab_about.png" />
-    <AndroidResource Include="Resources\drawable\tab_feed.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_perm_identity.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_perm_identity.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_perm_identity.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_perm_identity.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_perm_identity.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-ldpi\ic_perm_identity.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_circle.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_add_circle.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_add_circle.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_add_circle.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_add_circle.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-ldpi\ic_add_circle.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_home.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_home.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_home.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_home.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_home.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-ldpi\ic_home.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_loop.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_loop.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_loop.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_loop.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_loop.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-ldpi\ic_loop.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_notifications_none.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_notifications_none.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_notifications_none.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_notifications_none.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_notifications_none.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-ldpi\ic_notifications_none.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\sterlingicon.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Icon_512.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\splash_background.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Icon_192.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\PayThruLogo.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\PayThruLogoSplash.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SterlingePOSMerchant\SterlingePOSMerchant.csproj">
-      <Project>{82B23D2D-9663-4F30-92B8-7764FF27E860}</Project>
-      <Name>SterlingePOSMerchant</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Renderers\" />
-  </ItemGroup>
- <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{8D734A37-B38C-4C6B-891B-9DC439B48870}</ProjectGuid>
+        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
+        <OutputType>Library</OutputType>
+        <RootNamespace>SterlingePOSMerchant.Droid</RootNamespace>
+        <AssemblyName>SterlingePOSMerchant.Android</AssemblyName>
+        <Deterministic>True</Deterministic>
+        <AndroidApplication>True</AndroidApplication>
+        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+        <AndroidResgenClass>Resource</AndroidResgenClass>
+        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+        <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+        <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+        <AndroidUseAapt2>true</AndroidUseAapt2>
+        <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+        <NuGetPackageImportStamp>
+        </NuGetPackageImportStamp>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidLinkMode>None</AndroidLinkMode>
+        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+        <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidManagedSymbols>true</AndroidManagedSymbols>
+        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Mono.Android" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Numerics.Vectors" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+        <PackageReference Include="Xamarin.Forms.Visual.Material">
+            <Version>5.0.0.2012</Version>
+        </PackageReference>
+        <PackageReference Include="Newtonsoft.Json">
+            <Version>12.0.3</Version>
+        </PackageReference>
+        <PackageReference Include="Acr.UserDialogs">
+            <Version>7.1.0.466</Version>
+        </PackageReference>
+        <PackageReference Include="ZXing.Net.Mobile">
+            <Version>2.4.1</Version>
+        </PackageReference>
+        <PackageReference Include="ZXing.Net.Mobile.Forms">
+            <Version>2.4.1</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.FFImageLoading.Forms">
+            <Version>2.4.11.982</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+            <Version>2.4.11.982</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.FFImageLoading.Svg">
+            <Version>2.4.11.982</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+            <Version>2.4.11.982</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.CommunityToolkit">
+          <Version>1.0.3</Version>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="MainActivity.cs" />
+        <Compile Include="Resources\Resource.designer.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Renderers\RoundedEntryRendererAndroid.cs" />
+        <Compile Include="Resources\drawable\ScanPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+        <Compile Include="Renderers\PickerRenderer.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Resources\AboutResources.txt" />
+        <None Include="Assets\AboutAssets.txt" />
+        <None Include="Properties\AndroidManifest.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\layout\Tabbar.xml" />
+        <AndroidResource Include="Resources\layout\Toolbar.xml" />
+        <AndroidResource Include="Resources\values\styles.xml" />
+        <AndroidResource Include="Resources\values\colors.xml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
+        <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+        <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
+        <AndroidResource Include="Resources\drawable\tab_about.png" />
+        <AndroidResource Include="Resources\drawable\tab_feed.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_perm_identity.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_perm_identity.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_perm_identity.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_perm_identity.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_perm_identity.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-ldpi\ic_perm_identity.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_circle.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_add_circle.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_add_circle.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_add_circle.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_add_circle.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-ldpi\ic_add_circle.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_home.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_home.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_home.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_home.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_home.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-ldpi\ic_home.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_loop.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_loop.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_loop.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_loop.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_loop.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-ldpi\ic_loop.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_notifications_none.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_notifications_none.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_notifications_none.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_notifications_none.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_notifications_none.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable-ldpi\ic_notifications_none.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\sterlingicon.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\Icon_512.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\splash_background.xml">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\Icon_192.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\PayThruLogo.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\PayThruLogoSplash.png">
+            <SubType>
+            </SubType>
+            <Generator>
+            </Generator>
+        </AndroidResource>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\SterlingePOSMerchant\SterlingePOSMerchant.csproj">
+            <Project>{82B23D2D-9663-4F30-92B8-7764FF27E860}</Project>
+            <Name>SterlingePOSMerchant</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Renderers\" />
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

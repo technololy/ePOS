@@ -9,6 +9,7 @@ using SterlingePOSMerchant.Models;
 using SterlingePOSMerchant.Services;
 using SterlingePOSMerchant.Settings;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SterlingePOSMerchant.ViewModels
 {
@@ -81,12 +82,13 @@ namespace SterlingePOSMerchant.ViewModels
 
             string url = AppSettings.BaseURL + "admin/reset";
             var obj = new { ux = AppSettings.ClientId };
-
             var response = await APIServices.SendRequest<QuickType.ResetResponse>(obj, false, url);
             if (response.isSuccess)
             {
                 Settings.AppSettings.iv = response.model.Iv;
                 Settings.AppSettings.key = response.model.Key;
+                await Xamarin.Essentials.SecureStorage.SetAsync("iv", Settings.AppSettings.iv);
+                await Xamarin.Essentials.SecureStorage.SetAsync("key", Settings.AppSettings.key);
                 return (true);
 
             }
@@ -100,7 +102,7 @@ namespace SterlingePOSMerchant.ViewModels
         }
 
 
-        public async Task<bool> Login()
+        public async Task<bool> SysLogin()
         {
 
             string url = AppSettings.BaseURL + "admin/sys-login";
@@ -110,11 +112,41 @@ namespace SterlingePOSMerchant.ViewModels
             if (response.isSuccess)
             {
                 Settings.AppSettings.AccessToken = response.model.Authorization;
+                Debug.WriteLine($"token at sys login is {Settings.AppSettings.AccessToken}");
                 return (true);
 
             }
             else
             {
+                return (false);
+
+            }
+
+
+        }
+
+
+        public async Task<bool> UserLogin(string username, string password)
+        {
+
+            string url = AppSettings.BaseURL + "admin/user-login";
+            var obj = new { userName = username, password = password };
+
+            var response = await APIServices.SendHashRequest<CreateMerchant>(obj, false, url);
+            if (response.isSuccess)
+            {
+
+                // Settings.AppSettings.AccessToken = response.model.jwt;
+                Settings.AppSettings.AccessTokenAfterLogin = response.model.jwt;
+                Services.DataWareHouse.LoggedInMerchantData = response.model;
+                Debug.WriteLine($"token at user login is {Settings.AppSettings.AccessToken}");
+
+                return (true);
+
+            }
+            else
+            {
+                Services.DataWareHouse.ErrorLoggingInData = response.model;
                 return (false);
 
             }

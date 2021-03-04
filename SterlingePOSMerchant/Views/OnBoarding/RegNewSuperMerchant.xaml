@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SterlingePOSMerchant.Views.OnBoarding.RegNewSuperMerchant"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:c="clr-namespace:SterlingePOSMerchant.CustomControls"
+    xmlns:ffSVG="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <NavigationPage.TitleView>
+        <StackLayout
+            BackgroundColor="{StaticResource ThemeColor}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Label
+                x:Name="lblHeader"
+                Style="{StaticResource NavLabel}"
+                Text="SUPER MERCHANT REGISTERATION"
+                TextColor="White" />
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <StackLayout Spacing="10">
+
+        <StackLayout BackgroundColor="{StaticResource ThemeColor}">
+            <ffSVG:SvgCachedImage
+                BackgroundColor="{StaticResource ThemeColor}"
+                HeightRequest="100"
+                Source="resource://SterlingePOSMerchant.Resources.svg.undraw_fill_forms_yltj.svg"
+                WidthRequest="300" />
+            <Label
+                x:Name="lblInfo"
+                Margin="10"
+                Text="Create merchants that will have submerchants"
+                TextColor="White" />
+        </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="stackReg" Padding="15">
+                <!--<Label Style="{StaticResource EntryTitle}" Text="Enter Merchant name" />
+            <c:RoundedEntry
+                x:Name="txtMerchantName"
+                Placeholder="Merchant name"
+                Text="{Binding Merchant.name}" />
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant email" />-->
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant first name" />
+                <c:RoundedEntry Placeholder="First name" Text="{Binding Merchant.firstName}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant middle name" />
+                <c:RoundedEntry Placeholder="Middle name" Text="{Binding Merchant.middleName}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant last name" />
+                <c:RoundedEntry Placeholder="Last name" Text="{Binding Merchant.lastName}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant email" />
+
+                <c:RoundedEntry
+                    Keyboard="Email"
+                    Placeholder="Email"
+                    Text="{Binding Merchant.emailAddress}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant username" />
+
+                <c:RoundedEntry
+                    Keyboard="Email"
+                    Placeholder="username"
+                    Text="{Binding Merchant.userName}" />
+
+                <!--<Label Style="{StaticResource EntryTitle}" Text="Enter Merchant TIN (Tax Identity Number)" />
+
+            <c:RoundedEntry Placeholder="TIN" Text="{Binding Merchant.tin}" />-->
+                <Label Style="{StaticResource EntryTitle}" Text="Enter primary number" />
+
+                <Grid ColumnDefinitions="0.2*,0.8*">
+                    <c:RoundedEntry Keyboard="Numeric" Text="+234" />
+                    <c:RoundedEntry
+                        Grid.Column="1"
+                        Keyboard="Numeric"
+                        Placeholder="Phone number withour leading zero"
+                        Text="{Binding Merchant.phone}" />
+                </Grid>
+
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter secondary number" />
+
+                <Grid ColumnDefinitions="0.2*,0.8*">
+                    <c:RoundedEntry Keyboard="Numeric" Text="+234" />
+                    <c:RoundedEntry
+                        Grid.Column="1"
+                        Keyboard="Numeric"
+                        Placeholder="Phone number withour leading zero"
+                        Text="{Binding Merchant.phone2}" />
+                </Grid>
+
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter primary address" />
+
+                <c:RoundedEntry Placeholder="Address" Text="{Binding Merchant.address1}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter secondary address" />
+
+                <c:RoundedEntry Placeholder="Address" Text="{Binding Merchant.Address2}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Do you have multiple stores?" />
+
+                <c:RoundedEntry
+                    x:Name="txtMultiStore"
+                    Placeholder="E.g. Shoprite"
+                    Text="{Binding Merchant.multiStore}" />
+
+
+                <Label Style="{StaticResource EntryTitle}" Text="What state in Nigeria are you?" />
+
+                <c:RoundedEntry Placeholder="Enter state" Text="{Binding Merchant.state}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Account number" />
+
+                <c:RoundedEntry Placeholder="Enter account number" Text="{Binding Merchant.accountNumber}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Account Name" />
+
+                <c:RoundedEntry Placeholder="Enter account name" Text="{Binding Merchant.accountName}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Choose bank" />
+
+                <c:MyPicker
+                    x:Name="myPicker"
+                    Title="Select bank"
+                    ItemDisplayBinding="{Binding BankName}"
+                    ItemsSource="{Binding BanksList}"
+                    SelectedIndexChanged="MyPicker_SelectedIndexChanged"
+                    SelectedItem="{Binding BankCode}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter fee" />
+
+                <c:RoundedEntry Placeholder="Enter fee" Text="{Binding Merchant.fee}" />
+
+                <!--<Label Style="{StaticResource EntryTitle}" Text="Enter Merchant fee" />
+
+            <c:RoundedEntry
+                Keyboard="Numeric"
+                Placeholder="Fee"
+                Text="{Binding Merchant.fee}" />-->
+
+                <!--<Label Style="{StaticResource EntryTitle}" Text="Enter Partner code" />
+
+                <c:RoundedEntry
+                    Keyboard="Numeric"
+                    Placeholder="Partner code"
+                    Text="{Binding Merchant.partnerCode}" />-->
+
+                <!--<Label Style="{StaticResource EntryTitle}" Text="Enter Merchant user role" />
+
+                <c:MyPicker
+                    x:Name="pickerMerchant"
+                    Title="Pick one"
+                    InputTransparent="True"
+                    SelectedItem="{Binding Merchant.userRoleText}">
+                    <c:MyPicker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Merchant</x:String>
+                            <x:String>Submerchant</x:String>
+
+                        </x:Array>
+                    </c:MyPicker.ItemsSource>
+                </c:MyPicker>-->
+
+                <Button
+                    x:Name="btnRegister"
+                    Clicked="btnRegister_Clicked"
+                    Text="Register" />
+            </StackLayout>
+            <!--<StackLayout x:Name="stackReg" Padding="15">
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant name" />
+            <c:RoundedEntry
+                x:Name="txtMerchantName"
+                Placeholder="Merchant name"
+                Text="{Binding Merchant.name}" />
+            <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant email" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant  name" />
+                <c:RoundedEntry Placeholder="Name" Text="{Binding Merchant.name}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant TIN" />
+                <c:RoundedEntry Placeholder="TIN" Text="{Binding Merchant.tin}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant contact" />
+                <c:RoundedEntry Placeholder="Contact" Text="{Binding Merchant.contact}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant email" />
+
+                <c:RoundedEntry
+                    Keyboard="Email"
+                    Placeholder="Email"
+                    Text="{Binding Merchant.email}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant username" />
+
+                <c:RoundedEntry
+                    Keyboard="Email"
+                    Placeholder="username"
+                    Text="{Binding Merchant.userName}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant TIN (Tax Identity Number)" />
+
+            <c:RoundedEntry Placeholder="TIN" Text="{Binding Merchant.tin}" />
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant phone number" />
+
+                <Grid ColumnDefinitions="0.3*,0.7*">
+                    <c:RoundedEntry Keyboard="Numeric" Text="+234" />
+                    <c:RoundedEntry
+                        Grid.Column="1"
+                        Keyboard="Numeric"
+                        Placeholder="Phone number withour leading zero"
+                        Text="{Binding Merchant.phone}" />
+                </Grid>
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant address" />
+
+                <c:RoundedEntry Placeholder="Address" Text="{Binding Merchant.address}" />
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant fee" />
+
+            <c:RoundedEntry
+                Keyboard="Numeric"
+                Placeholder="Fee"
+                Text="{Binding Merchant.fee}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter merchant fee " />
+
+                <c:RoundedEntry
+                    x:Name="txtFee"
+                    Keyboard="Numeric"
+                    Placeholder="Fee"
+                    Text="{Binding Merchant.fee}" />
+
+                <Label Style="{StaticResource EntryTitle}" Text="Enter Merchant user role" />
+
+                <c:MyPicker
+                    x:Name="pickerMerchant"
+                    Title="Pick one"
+                    IsVisible="false"
+                    SelectedItem="{Binding Merchant.userRoleText}">
+                    <c:MyPicker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Merchant</x:String>
+                            <x:String>Submerchant</x:String>
+
+                        </x:Array>
+                    </c:MyPicker.ItemsSource>
+                </c:MyPicker>
+
+                <Button
+                    x:Name="btnRegister"
+                    Clicked="btnRegister_Clicked"
+                    Text="Register" />
+            </StackLayout>-->
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

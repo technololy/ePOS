@@ -15,7 +15,7 @@ namespace SterlingePOSMerchant
 
             DependencyService.Register<MockDataStore>();
             //MainPage = new AppShell();
-            MainPage = new NavigationPage(new Views.Login());
+            MainPage = new NavigationPage(new Views.OnBoarding.Landing());
         }
 
         protected override void OnStart()

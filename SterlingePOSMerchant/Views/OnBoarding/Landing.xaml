@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SterlingePOSMerchant.Views.OnBoarding.Landing"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource ThemeColor}"
+    NavigationPage.HasNavigationBar="False">
+    <StackLayout Padding="20">
+        <StackLayout>
+            <Label
+                Margin="30,30,-10,0"
+                FontFamily="QSBold"
+                FontSize="50"
+                HorizontalOptions="EndAndExpand"
+                Text="OneStop &#10;Merchant &#10;App"
+                TextColor="White" />
+        </StackLayout>
+        <StackLayout Spacing="0" VerticalOptions="EndAndExpand">
+            <Label
+                Margin="20,30,0,0"
+                FontFamily="QSBold"
+                FontSize="40"
+                HorizontalOptions="StartAndExpand"
+                Text="Welcome"
+                TextColor="White"
+                VerticalOptions="EndAndExpand" />
+            <Label
+                Margin="20,0,0,0"
+                FontFamily="QSBold"
+                FontSize="15"
+                HorizontalOptions="StartAndExpand"
+                Text="PayThru For Merchant"
+                TextColor="White"
+                VerticalOptions="EndAndExpand" />
+        </StackLayout>
+        <!--<StackLayout>
+            <Image Source="PayThruLogo" WidthRequest="100" />
+        </StackLayout>-->
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Button
+                x:Name="btnLogin"
+                Clicked="btnLogin_Clicked"
+                Text="Login" />
+            <Button
+                x:Name="btnRegister"
+                Clicked="btnRegister_Clicked"
+                Style="{StaticResource AltButton}"
+                Text="Register" />
+            <Button
+                x:Name="btnRefresh"
+                Clicked="btnRefresh_Clicked"
+                IsVisible="false"
+                Text="Refresh Token" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

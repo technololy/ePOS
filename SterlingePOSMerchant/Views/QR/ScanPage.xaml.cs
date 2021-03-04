@@ -25,6 +25,17 @@ namespace SterlingePOSMerchant.Views.QR
 
             }
             VisualStateManager.GoToState((Frame)sender, "Selected");
+            if (selected.Equals("Static"))
+            {
+                myZX.IsVisible = true;
+                DynamicEntry.IsVisible = false;
+
+            }
+            else
+            {
+                myZX.IsVisible = false;
+                DynamicEntry.IsVisible = true;
+            }
 
 
         }
@@ -37,12 +48,16 @@ namespace SterlingePOSMerchant.Views.QR
             InitializeComponent();
             qrVM = new ViewModels.QRGenViewModel();
             BindingContext = qrVM;
-            LoadQRBarCode();
+            myZX.BarcodeValue = Services.DataWareHouse.LoggedInMerchantData?.QrCodeStr;
+
+            // QRType_Tapped(this, new EventArgs());
+            //LoadQRBarCode();
         }
 
 
-        public async void LoadQRBarCode()
+        public async void LoadQRBarCode(string BarCodeType)
         {
+
             using (Acr.UserDialogs.UserDialogs.Instance.Loading())
             {
                 result = await qrVM.GetQRBarCodeContent();
@@ -54,8 +69,13 @@ namespace SterlingePOSMerchant.Views.QR
             }
             else
             {
-
+                await DisplayAlert("Failed to generate QR", result.resp?.errorDesc ?? "Error occured", "OK");
             }
+        }
+
+        void genDynamicQR_Clicked(System.Object sender, System.EventArgs e)
+        {
+            LoadQRBarCode("");
         }
     }
 }

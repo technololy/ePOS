@@ -11,6 +11,10 @@
     mc:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
+
+            <Color x:Key="ThemeColor">#ff9292</Color>
+
+
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="QSReg" />
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -39,8 +43,19 @@
             </Style>
             <Style TargetType="Button">
                 <Setter Property="Padding" Value="10" />
-                <Setter Property="CornerRadius" Value="25" />
-                <Setter Property="BackgroundColor" Value="Red" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="QSReg" />
+            </Style>
+            <Style x:Key="AltButton" TargetType="Button">
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BorderColor" Value="{StaticResource ThemeColor}" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="FontFamily" Value="QSReg" />
             </Style>
@@ -48,8 +63,8 @@
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="CornerRadius" Value="25" />
                 <Setter Property="BackgroundColor" Value="White" />
-                <Setter Property="TextColor" Value="Red" />
-                <Setter Property="BorderColor" Value="Red" />
+                <Setter Property="TextColor" Value="{StaticResource ThemeColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource ThemeColor}" />
                 <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="FontFamily" Value="QSReg" />
             </Style>-->
@@ -61,9 +76,18 @@
             <Style x:Key="NPStyle" TargetType="Page">
                 <Setter Property="Title" Value="Title" />
                 <Setter Property="BackgroundColor" Value="White" />
+
                 <Setter Property="NavigationPage.HasNavigationBar" Value="True" />
                 <Setter Property="ios:Page.UseSafeArea" Value="True" />
                 <Setter Property="Padding" Value="20" />
+            </Style>
+            <Style TargetType="NavigationPage">
+
+                <Setter Property="BarBackgroundColor" Value="{StaticResource ThemeColor}" />
+                <Setter Property="NavigationPage.HasNavigationBar" Value="True" />
+                <Setter Property="ios:Page.UseSafeArea" Value="True" />
+                <Setter Property="BackgroundColor" Value="White" />
+
             </Style>
         </ResourceDictionary>
     </Application.Resources>

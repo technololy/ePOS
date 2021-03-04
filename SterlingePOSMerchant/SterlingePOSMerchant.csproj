@@ -5,9 +5,9 @@
         <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
-        <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-        <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.7.0.968" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+        <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2012" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
         <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
         <PackageReference Include="Acr.UserDialogs" Version="7.1.0.466" />
@@ -17,6 +17,7 @@
         <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.3" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -38,6 +39,26 @@
         <None Remove="Resources\svg\undraw_fill_forms_yltj.svg" />
         <None Remove="Resources\svg\undraw_agreement_aajr.svg" />
         <None Remove="Resources\materialdesignicons-webfont.ttf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Black.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-BlackItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Bold.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-BoldItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Extrabold.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-ExtraboldItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Heavy.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-HeavyItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Light.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-LightItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Medium.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-MediumItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Regular.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-RegularItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Semibold.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-SemiboldItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-Thin.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-ThinItalic.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-UltraLight.otf" />
+        <None Remove="Resources\Gilroy_font\Gilroy-UltraLightItalic.otf" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\Quicksand_Dash.otf" />
@@ -51,5 +72,30 @@
         <EmbeddedResource Include="Resources\svg\undraw_fill_forms_yltj.svg" />
         <EmbeddedResource Include="Resources\svg\undraw_agreement_aajr.svg" />
         <EmbeddedResource Include="Resources\materialdesignicons-webfont.ttf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Black.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-BlackItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Bold.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-BoldItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Extrabold.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-ExtraboldItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Heavy.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-HeavyItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Light.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-LightItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Medium.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-MediumItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Regular.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-RegularItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Semibold.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-SemiboldItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-Thin.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-ThinItalic.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-UltraLight.otf" />
+        <EmbeddedResource Include="Resources\Gilroy_font\Gilroy-UltraLightItalic.otf" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Views\OnBoarding\RegNewSuperMerchant.xaml.cs">
+            <DependentUpon>RegNewSuperMerchant.xaml</DependentUpon>
+        </Compile>
     </ItemGroup>
 </Project>

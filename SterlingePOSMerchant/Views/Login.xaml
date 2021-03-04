@@ -52,34 +52,26 @@
                 Text="Merchant" />
             <Label IsVisible="false" Text="One stop solution" />
             <StackLayout Margin="0,20,0,0" Spacing="10">
-                <Entry
-                    BackgroundColor="WhiteSmoke"
-                    IsVisible="false"
-                    Placeholder="Email" />
-                <Entry
-                    BackgroundColor="WhiteSmoke"
-                    IsVisible="false"
-                    Placeholder="Password" />
+
                 <Label Style="{StaticResource EntryTitle}" Text="Enter Client id" />
                 <c:RoundedEntry x:Name="txtEmail" Placeholder="Email" />
                 <Label Style="{StaticResource EntryTitle}" Text="Enter Password" />
 
-                <c:RoundedEntry IsPassword="True" Placeholder="Password" />
+                <c:RoundedEntry
+                    x:Name="txtPassword"
+                    IsPassword="True"
+                    Placeholder="Password" />
             </StackLayout>
             <Button
                 x:Name="btnLogin"
-                BackgroundColor="Red"
                 Clicked="btnLogin_Clicked"
-                Text="Login"
-                TextColor="White" />
+                Text="Login" />
             <Button
                 x:Name="btnRegister"
-                BackgroundColor="White"
-                BorderColor="Red"
-                BorderWidth="0"
-                Clicked="btnRegister_Clicked"
-                Text="Register"
-                TextColor="Red"
+                Clicked="GoBack"
+                Style="{StaticResource AltButton}"
+                Text="Go Back"
+                TextColor="Black"
                 VerticalOptions="EndAndExpand" />
 
         </StackLayout>
